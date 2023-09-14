@@ -1,0 +1,106 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #faf5c4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-image: url(./sih.jpg);
+    background-size: cover;
+    height: 110vh;
+
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* contact.css */
+
+.contact-container {
+    background-color: #faf5c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    flex-direction: column;
+    position: relative;
+    /* Added to set icons' position relative to this container */
+}
+
+.contact-icons {
+    position: absolute;
+    bottom: 10px;
+    /* Adjust as needed to position the icons */
+    left: 10px;
+    /* Adjust as needed to position the icons */
+}
+
+.contact-icons a {
+    color: yellow;
+    font-size: 24px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+
+.contact-box {
+    background-color: #fcf6d3;
+    /* Golden color */
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 24px;
+    color: #2e1d1d;
+    /* Dark gray text */
+    text-align: center;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #6d350d;
+    /* Light brown text */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #eeb786;
+    /* Light brown background */
+    color: #ffffff;
+    /* Dark gray text */
+}
+
+button[type="submit"] {
+    background-color: #582500;
+    /* Light brown button background */
+    color: #fff;
+    /* White text */
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #461600;
+    /* Darker brown color on hover */
+}

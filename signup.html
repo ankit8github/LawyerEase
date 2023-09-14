@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawyerEase Sign-Up</title>
+    <style>
+        body {
+            align-content: center;
+            font-family: Arial, sans-serif;
+            background-color: darkgrey;
+            margin: 0;
+            padding: 0;
+            background-image: url(./sih.jpg);
+            background-size: cover;
+            height: 110vh;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            text-align: center;
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+        #input-box{
+            width: 10%;
+            max-width: 300px;
+            display: flex;
+            align-items: center;
+            height: 0%;
+        }
+
+        input[type="submit"] {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .form-footer {
+            text-align: center;
+        }
+
+        .form-footer p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="signup.php" method="post">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-box">
+                <label for="gender">Male<input type="radio" name="myGender"> Female<input type="radio"
+                        name="myGender">other<input type="radio" name="myGender"></label>
+            </div>
+            <div class="form-group">
+                <label for="usertype">CLIENT<input type="radio" name="myService">CONSULTENT<input type="radio"
+                        name="myService"></label>
+
+            </div>
+            <div class="input-box">
+                <label for="password">Password:
+                <input type="password" placeholder="password" id="password" required
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*]{1,8}$"
+                    title="Must be 1-8 characters and include at least one lowercase letter, one uppercase letter, and one special character.">
+                    <img src="./eye-icons/eye-close.png" id="eyeicon" id="eyeicon" width="30" height="30"></label>
+               <!-- <label for="showPassword" id="password">Show Password<input type="checkbox" onclick="myFunction()"></label>-->
+ <small>Password must be up to 8 characters long and include at least one uppercase letter, one lowercase
+                    letter, and one special character (!@#$%^&*)</small>
+                    
+            </div>
+            <center>
+                <div class="form-group">
+                    <input type="submit" value="Sign Up">
+            </center>
+    </div>
+
+    </form>
+    <div class="form-footer">
+        <p>Already have an account? <a href="login.html">Log In</a></p>
+    </div>
+    </div>
+    <script>
+        
+        let eyeicon = document.getElementById("eyeicon");
+        let password = document.getElementById("password");
+     eyeicon.onclick = function(){
+         if (password.type == "password") {
+           password.type = "text";
+           eyeicon.src ="eye-open.png";
+         } else {
+           password.type = "password";
+           eyeicon.src ="eye-close.png";
+         }
+       }
+       
+    </script>
+</body>
+</html>
