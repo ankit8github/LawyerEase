@@ -7,19 +7,20 @@
     <title>LawyerEase Sign-Up</title>
     <style>
         body {
-            align-content: center;
             font-family: Arial, sans-serif;
-            background-color: darkgrey;
             margin: 0;
             padding: 0;
+            background-color: darkgrey;
             background-image: url(./sih.jpg);
             background-size: cover;
-            height: 110vh;
+            height: 150vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
             max-width: 400px;
-            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -44,19 +45,20 @@
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            text-align: center;
-            width: 90%;
+            width: 100%;
             padding: 10px;
             margin-bottom: 10px;
             border: 2px solid #ccc;
             border-radius: 10px;
         }
-        #input-box{
-            width: 10%;
-            max-width: 300px;
+
+        .input-box {
             display: flex;
             align-items: center;
-            height: 0%;
+        }
+
+        .input-box input[type="radio"] {
+            margin-right: 10px;
         }
 
         input[type="submit"] {
@@ -86,60 +88,150 @@
 <body>
     <div class="container">
         <h2>Sign Up</h2>
-        <form action="signup.php" method="post">
+        <form action="signup1.php" method="post">
             <div class="form-group">
-                <label for="fullname">Full Name</label>
+                <label for="usertype">User Type:</label>
+                <div class="input-box">
+                    <input type="radio" id="client" name="usertype" value="client" required>
+                    <label for="client">Client</label>
+                    <input type="radio" id="consultant" name="usertype" value="consultant" required>
+                    <label for="consultant">Consultant</label>
+                </div>
+            </div>
+
+            <input type="hidden" id="selected_usertype" name="selected_usertype" value="">
+
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
                 <input type="text" id="fullname" name="fullname" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div class="input-box">
-                <label for="gender">Male<input type="radio" name="myGender"> Female<input type="radio"
-                        name="myGender">other<input type="radio" name="myGender"></label>
+            <div class="form-group">
+                <div class="input-box">
+                    <label for="gender">Gender:</label>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other" required>
+                    <label for="other">Other</label>
+                </div>
             </div>
             <div class="form-group">
-                <label for="usertype">CLIENT<input type="radio" name="myService">CONSULTENT<input type="radio"
-                        name="myService"></label>
-
-            </div>
-            <div class="input-box">
-                <label for="password">Password:
-                <input type="password" placeholder="password" id="password" required
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required
                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*]{1,8}$"
                     title="Must be 1-8 characters and include at least one lowercase letter, one uppercase letter, and one special character.">
-                    <img src="./eye-icons/eye-close.png" id="eyeicon" id="eyeicon" width="30" height="30"></label>
-               <!-- <label for="showPassword" id="password">Show Password<input type="checkbox" onclick="myFunction()"></label>-->
- <small>Password must be up to 8 characters long and include at least one uppercase letter, one lowercase
+                <img src="./eye-close.png" id="eyeicon" width="30" height="30">
+                <small>Password must be up to 8 characters long and include at least one uppercase letter, one lowercase
                     letter, and one special character (!@#$%^&*)</small>
-                    
+            </div>
+
+            <div class="form-group" id="specialization-group" style="display: none;">
+                <label for="specialization-select">Specialization:</label>
+                <p>Hold ctrl to select more than one option</p>
+                <select id="specialization-select" name="specialization[]" multiple>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                    <option value="option4">Option 4</option>
+                    <option value="option5">Option 5</option>
+                    <option value="option6">Option 6</option>
+                </select>
+                <div id="selected-specializations" style="display: none;">
+                    <p>Selected Specializations:</p>
+                    <div id="specializations-box"></div>
+                </div>
+            </div>
+            <div class="form-group" id="experience-group" style="display: none;">
+                <label for="experience">Experience:</label>
+                <input type="text" id="experience" name="experience">
             </div>
             <center>
                 <div class="form-group">
                     <input type="submit" value="Sign Up">
+                </div>
             </center>
+        </form>
+        <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Log In</a></p>
+        </div>
     </div>
 
-    </form>
-    <div class="form-footer">
-        <p>Already have an account? <a href="login.html">Log In</a></p>
-    </div>
-    </div>
     <script>
-        
         let eyeicon = document.getElementById("eyeicon");
         let password = document.getElementById("password");
-     eyeicon.onclick = function(){
-         if (password.type == "password") {
-           password.type = "text";
-           eyeicon.src ="eye-open.png";
-         } else {
-           password.type = "password";
-           eyeicon.src ="eye-close.png";
-         }
-       }
-       
+        eyeicon.onclick = function () {
+            if (password.type === "password") {
+                password.type = "text";
+                eyeicon.src = "eye-open.png";
+            } else {
+                password.type = "password";
+                eyeicon.src = "eye-close.png";
+            };
+        }
+        const clientCheckbox = document.getElementById("client");
+        const consultantCheckbox = document.getElementById("consultant");
+        const selectedUsertypeField = document.getElementById("selected_usertype");
+        const specializationGroup = document.getElementById("specialization-group");
+        const experienceGroup = document.getElementById("experience-group");
+        const specializationSelect = document.getElementById("specialization-select");
+        const experienceInput = document.getElementById("experience");
+
+        // Function to update the visibility of specialization and experience fields
+        function updateFieldsVisibility() {
+            if (consultantCheckbox.checked) {
+                specializationGroup.style.display = "block";
+                experienceGroup.style.display = "block";
+            } else {
+                specializationGroup.style.display = "none";
+                experienceGroup.style.display = "none";
+            }
+        }
+
+        // Listen for changes in the consultant checkbox
+        consultantCheckbox.addEventListener("change", function () {
+            if (consultantCheckbox.checked) {
+                selectedUsertypeField.value = "consultant"; // Set the value to "consultant" if checked
+            } else {
+                selectedUsertypeField.value = ""; // Clear the value if unchecked
+            }
+
+            // Update the visibility of specialization and experience fields
+            updateFieldsVisibility();
+        });
+
+        // Listen for changes in the client checkbox
+        clientCheckbox.addEventListener("change", function () {
+            if (clientCheckbox.checked) {
+                selectedUsertypeField.value = "client"; // Set the value to "client" if checked
+            } else {
+                selectedUsertypeField.value = ""; // Clear the value if unchecked
+            }
+
+            // Update the visibility of specialization and experience fields
+            updateFieldsVisibility();
+        });
+
+
+        // Initial update of field visibility
+        updateFieldsVisibility();
+
+        // Listen for changes in the specialization select
+        specializationSelect.addEventListener("change", function () {
+            const selectedSpecializations = Array.from(specializationSelect.selectedOptions).map(option => option.value);
+            const specializationsBox = document.getElementById("specializations-box");
+            specializationsBox.innerHTML = selectedSpecializations.join(", ");
+            document.getElementById("selected-specializations").style.display = "block";
+        });
+
+
     </script>
+
+
 </body>
+
 </html>

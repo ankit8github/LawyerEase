@@ -4,32 +4,21 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(./sih.jpg);
+    
     background-size: cover;
     justify-content: center;
     align-items: center;
-    height: 220vh;
+    height: 200vh;
     
 }
-.circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    transition: filter 0.3s, transform 0.3s;
-}
+
 
 
 
 header {
     background-color: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 nav ul {
@@ -41,8 +30,13 @@ nav ul {
 nav ul li {
     display: inline;
     margin: 0 20px;
+    position: relative;
 }
 
+nav ul li:hover {
+    text-decoration: underline;
+    transition: text-decoration 0.3s ease;
+}
 nav ul li a {
     text-decoration: none;
     color: #fff;
@@ -50,25 +44,46 @@ nav ul li a {
 
 .hero {
     text-align: center;
-    padding: 100px 0;
-    background-image: url('your-hero-image.jpg');
+    padding: 100px;
+    background-image: url('/sih.jpg');
     background-size: cover;
-    color: #fff;
+    color: #000;
+    padding: 100px;
+}
+
+.hero::before {
+    content: "";
+    background-image: url('/sih.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(5px);
+    opacity: 0.7; 
+    z-index: -1; 
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 40px;
+    
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 16px;
 }
 
-.cta input {
-    width: 70%;
+.cta input[type="text"] {
+    width: 55%;
     padding: 10px;
-    border: none;
+    border: 2px solid black;
     border-radius: 5px;
+    color: #000000;
+    background-color: #fff;
+
+    transition: ease-in-out .5s;
+
 }
 
 .cta button {
@@ -79,6 +94,13 @@ nav ul li a {
     padding: 10px 20px;
     margin-left: 10px;
     cursor: pointer;
+    outline: none;
+    transition: ease-in-out .2s;
+}
+
+.cta button:hover{
+    background-color:#333;
+    transform: scale(1.1);
 }
 
 .legal-scenarios {
@@ -91,7 +113,7 @@ nav ul li a {
 }
 
 .testimonial-card {
-    background-color: #f7f7f7;
+    background-color: #504f4f39;
     padding: 20px;
     border-radius: 5px;
     margin: 20px;
@@ -101,29 +123,105 @@ nav ul li a {
     font-style: italic;
 }
 
-.featured-categories {
+/* .featured-categories {
     text-align: center;
     color: black;
-    size: 50px;
     padding: 50px 0;
 }
 
 .featured-categories ul {
     list-style: none;
     padding: 0;
-}
+} */
 
-.featured-categories ul li {
+/* .featured-categories ul li {
     display: inline;
     margin: 0 20px;
-}
+} */
 
-.featured-categories ul li a {
-    text-decoration:solid;
+/* .featured-categories ul li a {
+    text-decoration:none;
     color:darkred;
     font-size:larger;
-    font-weight: bold;
+    font-weight: bold; */
+/* } */
+h1{
+text-align: center;
 }
+.featured-lawyer-1{
+    display:inline-block;
+    width: 400px;
+    height: 200px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: darkgray;
+}
+
+.featured-lawyer-2{
+    display:inline-block;
+    /* display: flex; */
+     width: 400px;
+     height: 200px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: darkgray;
+}
+
+.featured-lawyer-3{
+    display:inline-block;
+    /* display: flex; */
+    width: 400px;
+     height: 200px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: darkgray;
+}
+
+.lawyer-image{
+    float: left;
+    max-width: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.lawyer-info-1{
+    flex: 1;
+}
+.lawyer-info-2{
+    flex: 1;
+}
+.lawyer-info-3{
+    flex: 1;
+}
+
+.lawyer-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.lawyer-specialization {
+    font-size: 20px;
+    text-align: left;
+    font-style: italic;
+    color: chocolate;
+}
+
+/* .lawyer-description {
+    float: right;
+    margin-top: 10px;
+    font-size: 16px;
+} */
+
 
 .recent-blog-posts {
     text-align: center;
@@ -131,7 +229,7 @@ nav ul li a {
 }
 
 .blog-post {
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ddd;
     margin: 20px;
     border-radius: 5px;
@@ -142,6 +240,7 @@ footer {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
 }
-
-/* Add more CSS styling as needed */
