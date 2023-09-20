@@ -53,7 +53,7 @@ nav ul li a {
 
 .hero::before {
     content: "";
-    background-image: url(./lsih.jpg'); /* Replace with your image URL */
+    background-image: url('sih.jpg');
     background-size: cover;
     position: absolute;
     top: 0;
